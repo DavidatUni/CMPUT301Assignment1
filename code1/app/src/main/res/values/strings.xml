@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Assignment1_2</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label"></string>
+    <string name="second_fragment_label">Emote Log</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="title">Welcome to Emote App!</string>
+    <string name="log_title">Emote Log</string>
+
+    <string name="happy_button">Happy</string>
+    <string name="sad_button">Sad</string>
+    <string name="calm_button">Calm</string>
+    <string name="anxious_button">Anxious</string>
+    <string name="angry_button">Angry</string>
+    <string name="tired_button">Tired</string>
+    <string name="log_button">Emote Log</string>
+</resources>
