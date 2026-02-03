@@ -6,6 +6,7 @@ import com.google.android.material.snackbar.Snackbar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 
 import androidx.navigation.NavController;
@@ -25,6 +26,9 @@ public class MainActivity extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
     private ArrayList<Emotion> emotions = new ArrayList<Emotion>();
+    private String[] emotionsNames = new String[]{"Happy","Sad","Angry","Anxious","Calm","Tired"};
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +43,14 @@ public class MainActivity extends AppCompatActivity {
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
+        //Log.d("DEBUG", "emotionNames is null? " + (emotionsNames == null));
         binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                new SummaryFragment(emotions).show(getSupportFragmentManager(), "Summary");
+                new SummaryFragment().newInstance(emotions,emotionsNames).show(getSupportFragmentManager(), "Summary");
             }
         });
+        //Log.d("DEBUG", "emotionNames is null? " + (emotionsNames == null));
     }
 
     @Override
@@ -79,6 +85,8 @@ public class MainActivity extends AppCompatActivity {
     public ArrayList<Emotion> getEmotions() {
         return emotions;
     }
+
+    public String[] getEmotionsNames() { return emotionsNames; }
 
     public void setEmotions(ArrayList<Emotion> emotions) {
         this.emotions = emotions;

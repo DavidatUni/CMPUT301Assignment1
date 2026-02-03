@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <EditText
+        android:id="@+id/edit_happy_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Happy"
+        android:ems="10"
+        android:inputType="text"
+        android:autofillHints="Happy">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/edit_sad_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Sad"
+        android:ems="10"
+        android:inputType="text"
+        android:autofillHints="Sad">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/edit_angry_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Angry"
+        android:ems="10"
+        android:inputType="text"
+        android:autofillHints="Angry">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/edit_anxious_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Anxious"
+        android:ems="10"
+        android:inputType="text"
+        android:autofillHints="Anxious">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/edit_calm_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Calm"
+        android:ems="10"
+        android:inputType="text"
+        android:autofillHints="Calm">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/edit_tired_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Tired"
+        android:ems="10"
+        android:inputType="text"
+        android:autofillHints="Tired">
+
+    </EditText>
+
+</LinearLayout>

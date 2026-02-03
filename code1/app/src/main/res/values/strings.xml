@@ -16,5 +16,6 @@
     <string name="anxious_button">Anxious</string>
     <string name="angry_button">Angry</string>
     <string name="tired_button">Tired</string>
+    <string name="customize_button">Customize</string>
     <string name="log_button">Emote Log</string>
 </resources>

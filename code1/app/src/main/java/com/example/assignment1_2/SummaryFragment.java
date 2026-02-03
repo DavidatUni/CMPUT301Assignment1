@@ -18,15 +18,32 @@ import java.util.Calendar;
 
 public class SummaryFragment extends DialogFragment {
     private ArrayList<Emotion> emotions;
+    private String[] emotionsNames;
     private Calendar calendar = Calendar.getInstance();
-    public SummaryFragment(ArrayList<Emotion> emotions) {
-        this.emotions = emotions;
+    private static final String ARGS_EMOTION_NAMES_ARRAY = "emotionsNames";
+    private static final String ARGS_EMOTION_ARRAY = "emotions";
+    public SummaryFragment() {
+
+    }
+
+    public static SummaryFragment newInstance(ArrayList<Emotion> emotions, String[] emotionsNames) {
+        SummaryFragment fragment = new SummaryFragment();
+        Bundle args = new Bundle();
+        args.putStringArray(ARGS_EMOTION_NAMES_ARRAY, emotionsNames);
+        args.putSerializable(ARGS_EMOTION_ARRAY, emotions);
+        fragment.setArguments(args);
+        return fragment;
     }
 
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         String today;
+
+        Bundle args = requireArguments();
+
+        emotionsNames = args.getStringArray(ARGS_EMOTION_NAMES_ARRAY);
+        emotions = (ArrayList<Emotion>) requireArguments().getSerializable(ARGS_EMOTION_ARRAY);
 
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH) + 1;
@@ -37,28 +54,28 @@ public class SummaryFragment extends DialogFragment {
         for (int i = 0; i < emotions.size();i++) {
             Emotion emotion = emotions.get(i);
             if (today.equals(emotion.getDay())) {
-                if ("Happy".equals(emotion.getEmotion())) {
+                if (emotionsNames[0].equals(emotion.getEmotion())) {
                     emotionNumbers[0]++;
-                } else if ("Sad".equals(emotion.getEmotion())) {
+                } else if (emotionsNames[1].equals(emotion.getEmotion())) {
                     emotionNumbers[1]++;
-                } else if ("Angry".equals(emotion.getEmotion())) {
+                } else if (emotionsNames[2].equals(emotion.getEmotion())) {
                     emotionNumbers[2]++;
-                } else if ("Anxious".equals(emotion.getEmotion())) {
+                } else if (emotionsNames[3].equals(emotion.getEmotion())) {
                     emotionNumbers[3]++;
-                } else if ("Calm".equals(emotion.getEmotion())) {
+                } else if (emotionsNames[4].equals(emotion.getEmotion())) {
                     emotionNumbers[4]++;
-                } else if ("Tired".equals(emotion.getEmotion())) {
+                } else if (emotionsNames[5].equals(emotion.getEmotion())) {
                     emotionNumbers[5]++;
                 }
             }
         }
 
-        String happyText = "Happy: "+emotionNumbers[0];
-        String sadText = "Sad: "+emotionNumbers[1];
-        String angryText = "Angry: "+emotionNumbers[2];
-        String anxiousText = "Anxious: "+emotionNumbers[3];
-        String calmText = "Calm: "+emotionNumbers[4];
-        String tiredText = "Tired: "+emotionNumbers[5];
+        String happyText = emotionsNames[0]+": "+emotionNumbers[0];
+        String sadText = emotionsNames[1]+": "+emotionNumbers[1];
+        String angryText = emotionsNames[2]+": "+emotionNumbers[2];
+        String anxiousText = emotionsNames[3]+": "+emotionNumbers[3];
+        String calmText = emotionsNames[4]+": "+emotionNumbers[4];
+        String tiredText = emotionsNames[5]+": "+emotionNumbers[5];
 
 
         View view = LayoutInflater.from(getContext()).inflate(R.layout.summary_fragment, null);

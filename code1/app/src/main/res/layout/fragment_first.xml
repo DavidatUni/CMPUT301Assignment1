@@ -38,7 +38,6 @@
             android:id="@+id/calm_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/calm_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textview_first" />
@@ -47,7 +46,6 @@
             android:id="@+id/happy_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/happy_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/angry_button"
             app:layout_constraintStart_toEndOf="@+id/calm_button"
@@ -57,7 +55,6 @@
             android:id="@+id/angry_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/angry_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textview_first" />
@@ -66,7 +63,6 @@
             android:id="@+id/tired_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/tired_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/calm_button" />
@@ -75,7 +71,6 @@
             android:id="@+id/sad_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/sad_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/anxious_button"
             app:layout_constraintStart_toEndOf="@+id/tired_button"
@@ -85,9 +80,16 @@
             android:id="@+id/anxious_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/anxious_button"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/angry_button" />
+
+        <Button
+            android:id="@+id/customize_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/customize_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

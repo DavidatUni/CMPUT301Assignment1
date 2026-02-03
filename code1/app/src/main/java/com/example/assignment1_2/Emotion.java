@@ -1,12 +1,15 @@
 package com.example.assignment1_2;
 
 import android.os.Build;
+import android.os.Parcelable;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Calendar;
 
 
-public class Emotion {
+public class Emotion implements Serializable {
+    //private static final long serialVersionUID = 1L;
     private String emotion;
     private String current;
     private Calendar calendar = Calendar.getInstance();
