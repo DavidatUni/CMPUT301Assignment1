@@ -22,7 +22,9 @@ import android.view.MenuItem;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
+    /* Main Activity Handles the fragments and the navigation between them also
+    * holds the main arrays used, one with the emotion names and the other
+    * with the emotion objects. The button for the daily summary is also here  */
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainBinding binding;
     private ArrayList<Emotion> emotions = new ArrayList<Emotion>();
@@ -34,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //navigation stuff idk, all of this is from the basic views template
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
@@ -43,14 +46,14 @@ public class MainActivity extends AppCompatActivity {
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
 
-        //Log.d("DEBUG", "emotionNames is null? " + (emotionsNames == null));
+        //Summary fragment button
         binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 new SummaryFragment().newInstance(emotions,emotionsNames).show(getSupportFragmentManager(), "Summary");
             }
         });
-        //Log.d("DEBUG", "emotionNames is null? " + (emotionsNames == null));
+
     }
 
     @Override
@@ -76,19 +79,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    public boolean onSupportNavigateUp() {
+    public boolean onSupportNavigateUp() { //navigation? part of template
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }
 
     public ArrayList<Emotion> getEmotions() {
+        //getter for the emotions array
         return emotions;
     }
 
-    public String[] getEmotionsNames() { return emotionsNames; }
-
-    public void setEmotions(ArrayList<Emotion> emotions) {
-        this.emotions = emotions;
+    public String[] getEmotionsNames() {
+        //getter for the names array
+        return emotionsNames;
     }
+
 }

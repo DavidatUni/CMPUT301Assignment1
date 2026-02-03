@@ -16,6 +16,9 @@ import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 
 public class EditButtonFragment extends DialogFragment {
+    /*This fragment is for changing the customizable buttons through
+    * a dialog fragment and edit texts. it changes the names array
+    * to do so*/
     private String[] emotionsNames;
     private static final String ARGS_STRING_ARRAY = "emotionsNames";
     public EditButtonFragment() {
@@ -23,6 +26,8 @@ public class EditButtonFragment extends DialogFragment {
     }
 
     public static EditButtonFragment newInstance(String[] emotionsNames) {
+        /*for stable importing of the names array after
+        * null array errors*/
         EditButtonFragment fragment = new EditButtonFragment();
         Bundle args = new Bundle();
         args.putStringArray(ARGS_STRING_ARRAY, emotionsNames);
@@ -32,6 +37,7 @@ public class EditButtonFragment extends DialogFragment {
 
 
     public interface EditButtonDialogListener {
+        //for editing the button names
         void editButton(String[] emotionsNames);
     }
 
@@ -39,6 +45,7 @@ public class EditButtonFragment extends DialogFragment {
 
     @Override
     public void onAttach(@NonNull Context context) {
+        //making sure the fragment is attached to firstfragment
         super.onAttach(context);
 
         Fragment parent = getParentFragment();
@@ -52,7 +59,9 @@ public class EditButtonFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        Log.d("DEBUG", "emotionNames is null? " + (emotionsNames == null));
+        /*large boy, this thing has to get all 6 editTexts from the proper
+        * xml and then hook them up to get the texts out of them and
+        * into the emotions names array*/
         emotionsNames = getArguments().getStringArray(ARGS_STRING_ARRAY);
 
 

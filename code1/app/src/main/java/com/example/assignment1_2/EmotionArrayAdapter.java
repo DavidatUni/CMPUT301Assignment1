@@ -13,6 +13,9 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 public class EmotionArrayAdapter extends ArrayAdapter<Emotion> {
+    /*The custom arrayadapter for emotions to both display the emotion name
+    * and the date it was recorded. uses a simple linear layout xml with 2
+    * textviews to achieve this*/
     public EmotionArrayAdapter(Context context, ArrayList<Emotion> emotions) {
         super(context, 0, emotions);
     }

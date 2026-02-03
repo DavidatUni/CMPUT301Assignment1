@@ -1,20 +1,17 @@
 package com.example.assignment1_2;
 
-import android.os.Build;
-import android.os.Parcelable;
-
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Calendar;
 
-
 public class Emotion implements Serializable {
-    //private static final long serialVersionUID = 1L;
+    /*Emotion object class holds 2 main variables, what emotion
+    it holds and what day it was recorded. A calender is used
+    * to get proper time notation. Has getters at the bottom*/
     private String emotion;
     private String current;
-    private Calendar calendar = Calendar.getInstance();
-    public Emotion(String emotion){
 
+    public Emotion(String emotion){
+        Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH) + 1;
         int day = calendar.get(Calendar.DAY_OF_MONTH);

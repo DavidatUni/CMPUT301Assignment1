@@ -16,13 +16,17 @@ import com.example.assignment1_2.databinding.FragmentFirstBinding;
 import java.util.ArrayList;
 
 public class FirstFragment extends Fragment implements EditButtonFragment.EditButtonDialogListener {
-
+    /*The main interaction fragment! Has all 6 emotion buttons with a
+    * emote log button to move to SecondFragment which holds the log
+    * and a customize button to change the emotions for the buttons*/
     private FragmentFirstBinding binding;
     private ArrayList<Emotion> emotions;
     private String[] emotionsNames;
 
     @Override
     public void editButton(String[] emotionsNames) {
+        //big editButton class from the interface in EditButtonFragment
+        //just changes the buttons text/name
         Button happy = getView().findViewById(R.id.happy_button);
         Button sad = getView().findViewById(R.id.sad_button);
         Button angry = getView().findViewById(R.id.angry_button);
@@ -44,20 +48,23 @@ public class FirstFragment extends Fragment implements EditButtonFragment.EditBu
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-
+        //template stuff
         binding = FragmentFirstBinding.inflate(inflater, container, false);
         return binding.getRoot();
 
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
+        /*This boy handles all the button clicks as well as more template stuff
+        * on the top. At the bottom is a lot of OnClicklisteners to add an emotion
+        * to the emotion array also has the emote log and customize button*/
         super.onViewCreated(view, savedInstanceState);
 
         MainActivity activity = (MainActivity) requireActivity();
         emotions = activity.getEmotions();
         emotionsNames = activity.getEmotionsNames();
         editButton(emotionsNames);
-        //Log.d("DEBUG", "emotionNames is null? " + (emotionsNames == null));
+
         binding.logButton.setOnClickListener(v ->
                 NavHostFragment.findNavController(FirstFragment.this)
                         .navigate(R.id.action_FirstFragment_to_SecondFragment)
@@ -88,11 +95,8 @@ public class FirstFragment extends Fragment implements EditButtonFragment.EditBu
 
     @Override
     public void onDestroyView() {
+        //template
         super.onDestroyView();
         binding = null;
-    }
-
-    public ArrayList<Emotion> getDataList() {
-        return emotions;
     }
 }

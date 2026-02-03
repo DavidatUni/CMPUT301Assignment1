@@ -17,9 +17,11 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class SummaryFragment extends DialogFragment {
+    /*This is the fragment for showing the user their total daily emotion
+    * frequencies. Just tabulates them all up for today*/
     private ArrayList<Emotion> emotions;
     private String[] emotionsNames;
-    private Calendar calendar = Calendar.getInstance();
+
     private static final String ARGS_EMOTION_NAMES_ARRAY = "emotionsNames";
     private static final String ARGS_EMOTION_ARRAY = "emotions";
     public SummaryFragment() {
@@ -27,6 +29,7 @@ public class SummaryFragment extends DialogFragment {
     }
 
     public static SummaryFragment newInstance(ArrayList<Emotion> emotions, String[] emotionsNames) {
+        /*Stable import of both name and emotion arrays to avoid null errors*/
         SummaryFragment fragment = new SummaryFragment();
         Bundle args = new Bundle();
         args.putStringArray(ARGS_EMOTION_NAMES_ARRAY, emotionsNames);
@@ -38,13 +41,18 @@ public class SummaryFragment extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
+        /*In here all the emotions in the emotions array are looked through
+        * it finds one which are from today and them tabulates them to show
+        * in the dialog fragment*/
+
         String today;
-
+        Calendar calendar = Calendar.getInstance();
+        //proper import
         Bundle args = requireArguments();
-
         emotionsNames = args.getStringArray(ARGS_EMOTION_NAMES_ARRAY);
         emotions = (ArrayList<Emotion>) requireArguments().getSerializable(ARGS_EMOTION_ARRAY);
 
+        //filtering out everything except for todays emotions
         int year = calendar.get(Calendar.YEAR);
         int month = calendar.get(Calendar.MONTH) + 1;
         int day = calendar.get(Calendar.DAY_OF_MONTH);
@@ -70,6 +78,7 @@ public class SummaryFragment extends DialogFragment {
             }
         }
 
+        //setting up Strings for setText to use
         String happyText = emotionsNames[0]+": "+emotionNumbers[0];
         String sadText = emotionsNames[1]+": "+emotionNumbers[1];
         String angryText = emotionsNames[2]+": "+emotionNumbers[2];
@@ -77,7 +86,7 @@ public class SummaryFragment extends DialogFragment {
         String calmText = emotionsNames[4]+": "+emotionNumbers[4];
         String tiredText = emotionsNames[5]+": "+emotionNumbers[5];
 
-
+        //lots of textViews are grabbed and then set to the total daily number
         View view = LayoutInflater.from(getContext()).inflate(R.layout.summary_fragment, null);
         TextView happy = view.findViewById(R.id.happy);
         TextView sad = view.findViewById(R.id.sad);
