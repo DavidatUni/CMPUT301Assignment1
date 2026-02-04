@@ -3,13 +3,13 @@ plugins {
 }
 
 android {
-    namespace = "com.example.assignment1_2"
+    namespace = "com.example.Dxiang1_Emotilog"
     compileSdk {
         version = release(36)
     }
 
     defaultConfig {
-        applicationId = "com.example.assignment1_2"
+        applicationId = "com.example.Dxiang1_Emotilog"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

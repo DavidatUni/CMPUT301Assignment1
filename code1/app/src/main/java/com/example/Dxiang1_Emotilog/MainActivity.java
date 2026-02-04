@@ -1,12 +1,9 @@
-package com.example.assignment1_2;
+package com.example.Dxiang1_Emotilog;
 
 import android.os.Bundle;
 
-import com.google.android.material.snackbar.Snackbar;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.util.Log;
 import android.view.View;
 
 import androidx.navigation.NavController;
@@ -14,7 +11,7 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
-import com.example.assignment1_2.databinding.ActivityMainBinding;
+import com.example.Dxiang1_Emotilog.databinding.ActivityMainBinding;
 
 import android.view.Menu;
 import android.view.MenuItem;

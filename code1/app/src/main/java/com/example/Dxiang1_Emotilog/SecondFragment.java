@@ -1,6 +1,5 @@
-package com.example.assignment1_2;
+package com.example.Dxiang1_Emotilog;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,9 +8,8 @@ import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.fragment.NavHostFragment;
 
-import com.example.assignment1_2.databinding.FragmentSecondBinding;
+import com.example.Dxiang1_Emotilog.databinding.FragmentSecondBinding;
 
 import java.util.ArrayList;
 

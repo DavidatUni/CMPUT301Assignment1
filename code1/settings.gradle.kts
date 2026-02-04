@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Assignment1_2"
+rootProject.name = "Dxiang1_Emotilog"
 include(":app")

@@ -1,4 +1,4 @@
-package com.example.assignment1_2;
+package com.example.Dxiang1_Emotilog;
 
 import org.junit.Test;
 

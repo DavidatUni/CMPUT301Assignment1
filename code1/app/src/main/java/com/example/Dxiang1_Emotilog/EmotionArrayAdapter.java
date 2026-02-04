@@ -1,4 +1,4 @@
-package com.example.assignment1_2;
+package com.example.Dxiang1_Emotilog;
 
 import android.content.Context;
 import android.view.LayoutInflater;
